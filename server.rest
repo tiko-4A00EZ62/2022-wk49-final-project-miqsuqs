@@ -1,0 +1,32 @@
+GET http://localhost:5001/api/expenses
+###
+GET http://localhost:5001/api/expenses/5
+###
+POST http://localhost:5001/api/expenses HTTP/1.1
+content-type: application/json
+
+{
+  "product_name": "Vessapaperi",
+  "product_amount": 8,
+  "product_category": "paperi",
+  "shop_name": "Alepa",
+  "expense_date": "2023-01-18",
+  "cost": "7.03"
+}
+###
+PUT http://localhost:5001/api/expenses HTTP/1.1
+content-type: application/json
+
+{
+  "expense_id": 5,
+  "product_name": "Vessapaperi",
+  "product_amount": 1,
+  "product_category": "Paperi",
+  "shop_name": "Alepa",
+  "expense_date": "2023-01-17",
+  "cost": "7.03"
+}
+###
+DELETE http://localhost:5001/api/expenses/6
+###
+GET http://localhost:5001/health

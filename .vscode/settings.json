@@ -1,0 +1,16 @@
+{
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "mydb.tamk.fi",
+      "port": 3306,
+      "driver": "MariaDB",
+      "name": "tamk expenses",
+      "database": "dbc7muusit1",
+      "username": "c7muusit"
+    }
+  ]
+}

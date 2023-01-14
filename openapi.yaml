@@ -1,0 +1,240 @@
+
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Final Project Expenses API
+  description: API for tracking expenses made for a final project assignement
+servers:
+  - url: nothing yet
+paths:
+  /health:
+    get:
+      description: Returns OK if service is running
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: OK
+  /expenses:
+    get:
+      description: Returns an array of expenses              
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    expense_id:
+                      type: integer
+                    product_name:
+                      type: string
+                    product_amount:
+                      type: integer
+                    product_category:
+                      type: string
+                    shop_name:
+                      type: string
+                    expense_date:
+                      type: string
+                    cost:
+                      type: number
+                    created:
+                      type: string
+                    updated:
+                      type: string
+        '500':
+          $ref: '#/components/responses/500Error'
+    post:
+      description: Creates a new expense
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object 
+              properties:
+                product_name:
+                  type: string
+                product_amount:
+                  type: integer
+                product_category:
+                   type: string
+                shop_name:
+                   type: string
+                expense_date:
+                  type: string
+                cost:
+                  type: number
+      responses:
+        '201':
+          description: Created succesfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                    expense_id:
+                      type: integer
+                    product_name:
+                      type: string
+                    product_amount:
+                      type: integer
+                    product_category:
+                      type: string
+                    shop_name:
+                      type: string
+                    expense_date:
+                      type: string
+                    cost:
+                      type: number
+                    created:
+                      type: string
+                    updated:
+                      type: string
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+
+    put:
+      description: Updates an existing expense
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object 
+              properties:
+                expense_id:
+                  type: integer
+                product_name:
+                  type: string
+                product_amount:
+                  type: integer
+                product_category:
+                  type: string
+                shop_name:
+                  type: string
+                expense_date:
+                  type: string
+                cost:
+                  type: number
+      responses:
+        '200':
+          description: Updated succesfully
+          content:
+            application/json:
+              schema:
+                type: object 
+                properties:
+                  expense_id:
+                    type: integer
+                  product_name:
+                    type: string
+                  product_amount:
+                    type: integer
+                  product_category:
+                    type: string
+                  shop_name:
+                    type: string
+                  expense_date:
+                    type: string
+                  cost:
+                    type: number
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+
+  /expenses/{expense_id}:
+    get:
+      description: Obtain information about a specific expense
+      parameters:
+        - name: expense_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully returned an expense
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                    expense_id:
+                      type: integer
+                    product_name:
+                      type: string
+                    product_amount:
+                      type: integer
+                    product_category:
+                      type: string
+                    shop_name:
+                      type: string
+                    expense_date:
+                      type: string
+                    cost:
+                      type: number
+                    created:
+                      type: string
+                    updated:
+                      type: string  
+        '400':
+          $ref: '#/components/responses/400Error'
+        '404':
+          $ref: '#/components/responses/404Error'
+        '500':
+          $ref: '#/components/responses/500Error'
+    delete:
+      description: Delete a specific expense
+      parameters:
+        - name: expense_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Expense deleted
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Expense deleted
+
+components:
+  responses:
+    400Error:
+      description: Invalid request
+      content:
+        text/plain:
+          schema:
+            type: string
+            example: Invalid value
+    404Error:
+      description: Not found
+      content:
+        text/plain:
+          schema:
+            type: string
+            example: Not found
+    500Error:
+      description: Internal error
+      content:
+        text/plain:
+          schema:
+            type: string
+            example: Internal error

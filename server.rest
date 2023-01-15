@@ -1,8 +1,8 @@
-GET http://localhost:5001/api/expenses
+GET https://expense-app-miqsuqs.onrender.com/api/expenses
 ###
-GET http://localhost:5001/api/expenses/5
+GET https://expense-app-miqsuqs.onrender.com/api/expenses/5
 ###
-POST http://localhost:5001/api/expenses HTTP/1.1
+POST https://expense-app-miqsuqs.onrender.com/api/expenses HTTP/1.1
 content-type: application/json
 
 {
@@ -14,11 +14,11 @@ content-type: application/json
   "cost": "7.03"
 }
 ###
-PUT http://localhost:5001/api/expenses HTTP/1.1
+PUT https://expense-app-miqsuqs.onrender.com/api/expenses HTTP/1.1
 content-type: application/json
 
 {
-  "expense_id": 5,
+  "expense_id": 9,
   "product_name": "Vessapaperi",
   "product_amount": 1,
   "product_category": "Paperi",
@@ -27,6 +27,6 @@ content-type: application/json
   "cost": "7.03"
 }
 ###
-DELETE http://localhost:5001/api/expenses/6
+DELETE https://expense-app-miqsuqs.onrender.com/api/expenses/9
 ###
-GET http://localhost:5001/health
+GET https://expense-app-miqsuqs.onrender.com/health

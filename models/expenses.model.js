@@ -46,7 +46,6 @@ const expenses = {
     new Promise((resolve, reject) => {
       const updateQuery =
         'update expenses set product_name = ?, product_amount = ?, product_category = ?, shop_name = ?, expense_date = ?, cost = ? where expense_id = ?;';
-      console.log(expense);
       connection.query(
         updateQuery,
         [

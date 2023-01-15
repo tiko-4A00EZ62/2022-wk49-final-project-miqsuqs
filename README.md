@@ -62,3 +62,34 @@ PORT=
 nodemon index.js
 
 #### Test that it works using the requests in localhost.rest file
+
+### Server
+
+Server is running on the following address and you can try using it from the server.rest file
+https://expense-app-miqsuqs.onrender.com/api/expenses
+
+#### Implemented endpoints
+
+Health endpoint:
+https://expense-app-miqsuqs.onrender.com/health
+
+Should return OK if service is running
+
+https://expense-app-miqsuqs.onrender.com/api/expenses
+Can be used for GET, POST and PUT calls
+
+https://expense-app-miqsuqs.onrender.com/api/expenses/{expense_id}
+Can be used to DELETE or to GET the information of a specific expense by id or to get the information of a specific expense.
+
+See the openapi.yaml for more detailed documentation.
+
+### Self Evaluation
+
+A = 12
+B = 30
+C = 12 (No tests were implemented and some endpoints weren't implemented)
+D = 20
+E = 10 (Documentation could be more compressed)
+F = 0
+
+Overall = 86

@@ -38,11 +38,8 @@ const createExpense = async (req, res) => {
     cost: Joi.number().min(0).required(),
   });
 
-  // Validate the req.body against the schema
-  // Validate returns an error object if there are validation errors
   const { error } = schema.validate(req.body);
   if (error) {
-    // Sending back the error details
     res.status(400).send(error.details[0].message);
     return;
   }

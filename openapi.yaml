@@ -1,26 +1,14 @@
-
 openapi: 3.0.0
 info:
   version: 1.0.0
   title: Final Project Expenses API
   description: API for tracking expenses made for a final project assignement
 servers:
-  - url: nothing yet
+  - url: https://expense-app-miqsuqs.onrender.com/api
 paths:
-  /health:
-    get:
-      description: Returns OK if service is running
-      responses:
-        '200':
-          description: Successful response
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: OK
   /expenses:
     get:
-      description: Returns an array of expenses              
+      description: Returns an array of expenses
       responses:
         '200':
           description: Successful response
@@ -58,16 +46,16 @@ paths:
         content:
           application/json:
             schema:
-              type: object 
+              type: object
               properties:
                 product_name:
                   type: string
                 product_amount:
                   type: integer
                 product_category:
-                   type: string
+                  type: string
                 shop_name:
-                   type: string
+                  type: string
                 expense_date:
                   type: string
                 cost:
@@ -79,32 +67,31 @@ paths:
             application/json:
               schema:
                 type: object
-                properties:   
-                    expense_id:
-                      type: integer
-                    product_name:
-                      type: string
-                    product_amount:
-                      type: integer
-                    product_category:
-                      type: string
-                    shop_name:
-                      type: string
-                    expense_date:
-                      type: string
-                    cost:
-                      type: number
-                    created:
-                      type: string
-                    updated:
-                      type: string
+                properties:
+                  expense_id:
+                    type: integer
+                  product_name:
+                    type: string
+                  product_amount:
+                    type: integer
+                  product_category:
+                    type: string
+                  shop_name:
+                    type: string
+                  expense_date:
+                    type: string
+                  cost:
+                    type: number
+                  created:
+                    type: string
+                  updated:
+                    type: string
         '400':
           $ref: '#/components/responses/400Error'
         '404':
           $ref: '#/components/responses/404Error'
         '500':
           $ref: '#/components/responses/500Error'
-
     put:
       description: Updates an existing expense
       requestBody:
@@ -112,7 +99,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object 
+              type: object
               properties:
                 expense_id:
                   type: integer
@@ -134,7 +121,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object 
+                type: object
                 properties:
                   expense_id:
                     type: integer
@@ -156,7 +143,6 @@ paths:
           $ref: '#/components/responses/404Error'
         '500':
           $ref: '#/components/responses/500Error'
-
   /expenses/{expense_id}:
     get:
       description: Obtain information about a specific expense
@@ -173,25 +159,25 @@ paths:
             application/json:
               schema:
                 type: object
-                properties:   
-                    expense_id:
-                      type: integer
-                    product_name:
-                      type: string
-                    product_amount:
-                      type: integer
-                    product_category:
-                      type: string
-                    shop_name:
-                      type: string
-                    expense_date:
-                      type: string
-                    cost:
-                      type: number
-                    created:
-                      type: string
-                    updated:
-                      type: string  
+                properties:
+                  expense_id:
+                    type: integer
+                  product_name:
+                    type: string
+                  product_amount:
+                    type: integer
+                  product_category:
+                    type: string
+                  shop_name:
+                    type: string
+                  expense_date:
+                    type: string
+                  cost:
+                    type: number
+                  created:
+                    type: string
+                  updated:
+                    type: string
         '400':
           $ref: '#/components/responses/400Error'
         '404':
@@ -214,7 +200,6 @@ paths:
               schema:
                 type: string
                 example: Expense deleted
-
 components:
   responses:
     400Error:
